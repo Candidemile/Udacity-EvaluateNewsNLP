@@ -1,14 +1,58 @@
+// Set variables
+$color-primary: #81b29a;
+$color-secondary: #f4f1de;
+$color-border: #3d405b;
+$color-button: #3d405b;
+
+/* MAIN rules */
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
+    min-height: 50vh;
+    background-color: $color-primary;
+    font-size: 1.5em;
 
-main {
-    flex: 2;
-}
+    header {
+        background-color: $color-primary;
+    }
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
+    main {
+        flex: 2;
+        background-color: $color-secondary;
+
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 1%;
+            text-align: center;
+            border-radius: 30vw;
+        }
+
+        .bordered {
+            border: 5px solid $color-border;
+        }
+
+        .button {
+            background-color: $color-button;
+            border-radius: 30vw;
+            width: 20vw;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7em;
+        }
+
+        .light {
+            background-color: $color-secondary;
+        }
+
+        .dark {
+            background-color: $color-primary;
+        }
+    }
+
+    footer {
+        background-color: $color-primary;
+        text-align: center;
+        padding: 1%;
+    }
 }
