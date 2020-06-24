@@ -6,7 +6,7 @@ const getUpdate = async () => {
 };
 // Update website UI
 const updateUI = (res) => {
-    if (!res) {
+    if (!res | (Object.keys(res).length === 0)) {
         return;
     }
     let text = `initial text - "${res.text}"<br>
