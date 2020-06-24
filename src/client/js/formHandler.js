@@ -6,6 +6,11 @@ function handleSubmit(event) {
     event.preventDefault();
     // check what text was put into the form field
     let formText = document.getElementById('name').value;
+    // Validate input
+    const reg = /[a-zA-Z]+/;
+    if (!formText.match(reg)) {
+        alert('Please input some text!!!');
+    }
     Client.checkForName(formText);
 
     console.log('::: Form Submitted :::');
