@@ -1,9 +1,8 @@
 function handleSubmit(event) {
-    // checking event
+    // check event
     if (!event) {
         throw 'There is no event!!!';
     }
-
     event.preventDefault();
     // check what text was put into the form field
     let formText = document.getElementById('name').value;
@@ -32,13 +31,10 @@ function handleSubmit(event) {
     // POST request to Express server
     const aylien = async () => {
         const response = await fetch('http://localhost:8080/aylien', requestOptions);
-        return response.json();
+        return response;
     };
-    // Update website UI
-    aylien().then((res) => {
-        console.log(res);
-        document.getElementById('results').textContent = res.text;
-    });
+    // Sent POST request
+    aylien();
 }
 
 export { handleSubmit };

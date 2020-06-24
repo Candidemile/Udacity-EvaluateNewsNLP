@@ -13,13 +13,17 @@ var textapi = new aylien({
     application_key: process.env.API_KEY
 });
 // aylian API function
-const test = textapi.sentiment(
+let aylienResonse = {};
+let status = false;
+let test = textapi.sentiment(
     {
         text: 'John has brown eyes.'
     },
     function(error, response) {
         if (error === null) {
             console.log(response);
+            // aylienResonse = response;
+            return response;
         }
     }
 );
@@ -49,18 +53,22 @@ app.get('/test', function(req, res) {
 app.post('/aylien', function(req, res) {
     console.log('POST request is being processed.');
     console.log('Input is ', req.body);
-    const output = textapi.sentiment(
+    const testSDK = textapi.sentiment(
         {
             text: req.body.text
         },
         function(error, response) {
             if (error === null) {
-                console.log(response);
+                aylienResonse = response;
             }
         }
     );
-    console.log(output);
-    res.send(req.body);
+    console.log('output: ');
+    console.log(JSON.stringify(aylienResonse));
+    res.send('post response');
 });
 
-module.exports = app;
+app.get('/update', function(req, res) {
+    // console.log('This is the latest data:\n', JSON.stringify(aylienResonse));
+    res.send(JSON.stringify(aylienResonse));
+});
