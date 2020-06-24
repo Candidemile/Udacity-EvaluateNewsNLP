@@ -62,3 +62,5 @@ app.post('/aylien', function(req, res) {
     console.log(output);
     res.send(req.body);
 });
+
+module.exports = app;
